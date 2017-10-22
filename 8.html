@@ -1,0 +1,127 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+    <title>题目8</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        ul {
+            list-style: none;
+            width: 200px;
+        }
+
+        a {
+            display: inline-block;
+            width: 180px;
+            padding: 10px 0;
+            border-bottom: 1px dotted #ffcd24;
+            color: #fff;
+            text-decoration: none;
+        }
+
+        .right {
+            float: right;
+        }
+
+        #main-list > li {
+            position: relative;
+            padding: 0 10px;
+            background-color: #ff0000;
+        }
+
+        #main-list > li:last-child > a {
+            border-bottom: none;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        #main-list > li.hover > ul {
+            display: flex;
+            flex-flow: row wrap;
+            align-items: center;
+            position: absolute;
+            width: 200px;
+            height: 60px;
+            top: 1px;
+            left: 200px;
+            border: 1px solid #bbb;
+        }
+
+        .popup-list > li {
+            width: 50%;
+            text-align: center;
+        }
+
+
+    </style>
+</head>
+<body>
+<ul id="main-list">
+    <li>
+        <a href=""><span class="left">珠宝玉器</span><span class="right">>
+        </span></a>
+        <ul class="popup-list hidden">
+            <li>翡翠</li>
+            <li>玉石</li>
+            <li>宝石</li>
+            <li>水晶</li>
+        </ul>
+    </li>
+    <li>
+        <a href=""><span class="left">珠宝玉器</span><span class="right">>
+        </span></a>
+        <ul class="popup-list hidden">
+            <li>翡翠</li>
+            <li>玉石</li>
+            <li>宝石</li>
+            <li>水晶</li>
+        </ul>
+    </li>
+    <li>
+        <a href=""><span class="left">珠宝玉器</span><span class="right">>
+        </span></a>
+        <ul class="popup-list hidden">
+            <li>翡翠</li>
+            <li>玉石</li>
+            <li>宝石</li>
+            <li>水晶</li>
+        </ul>
+    </li>
+    <li>
+        <a href=""><span class="left">珠宝玉器</span><span class="right">>
+        </span></a>
+        <ul class="popup-list hidden">
+            <li>翡翠</li>
+            <li>玉石</li>
+            <li>宝石</li>
+            <li>水晶</li>
+        </ul>
+    </li>
+    <li>
+        <a href=""><span class="left">珠宝玉器</span><span class="right">>
+        </span></a>
+        <ul class="popup-list hidden">
+            <li>翡翠</li>
+            <li>玉石</li>
+            <li>宝石</li>
+            <li>水晶</li>
+        </ul>
+    </li>
+</ul>
+<script>
+    $('#main-list > li').hover(function () {
+        $(this).toggleClass('hover')
+    })
+</script>
+</body>
+</html>

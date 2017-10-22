@@ -1,0 +1,124 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+    <title>题目11</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+
+        ul {
+            list-style: none;
+        }
+
+        .container {
+            margin: 20px;
+        }
+
+        .tabs {
+            display: flex;
+            width: 600px;
+            border: 1px solid #999;
+        }
+
+        .tabs > li {
+            flex: 1;
+            padding: 5px;
+            border: 1px solid #999;
+            border-bottom: none;
+            border-right: none;
+            text-align: center;
+        }
+
+        .tabs > li:last-child {
+            border-right: 1px solid #999;
+        }
+
+        .tabs > li.active {
+            background: #999;
+        }
+
+        .content {
+            width: 1800px;
+            height: 200px;
+            font-size: 0;
+        }
+
+        .content > li {
+            display: inline-block;
+            width: 600px;
+            height: 100%;
+            font-size: 16px;
+        }
+
+        .content > li:nth-child(1) {
+            background-color: #f00;
+        }
+
+        .content > li:nth-child(2) {
+            background-color: #0f0;
+        }
+
+        .content > li:nth-child(3) {
+            background-color: #00f;
+        }
+        .content-box {
+            width: 600px;
+            overflow: hidden;
+            border: 1px solid #999;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <ul class="tabs clearfix">
+        <li class="active">tab1</li>
+        <li>tab2</li>
+        <li>tab3</li>
+    </ul>
+    <div class="content-box">
+        <ul class="content">
+            <li class="active">内容1</li>
+            <li>内容2</li>
+            <li>内容3</li>
+        </ul>
+    </div>
+</div>
+<script>
+    //    var tabs = document.querySelector('.container .tabs')
+    //    var tabLis = document.querySelectorAll('.tabs > li')
+    //    var contentLis = document.querySelectorAll('.content > li')
+    //
+    //    tabs.addEventListener('click', function (e) {
+    //        var node = e.target
+    //        for (var i = 0; i < tabLis.length; i++) {
+    //            tabLis[i].classList.remove('active')
+    //        }
+    //        node.classList.add('active')
+    //
+    //        var index = [].indexOf.call(tabLis, node)
+    //
+    //        for (var j = 0; j < contentLis.length; j++) {
+    //            contentLis[j].classList.remove('active')
+    //        }
+    //        contentLis[index].classList.add('active')
+    //    })
+    $('.tabs > li').on('click', function () {
+        var $this = $(this)
+        var index = $this.index()
+        var contentWidth = $('.content > li').width()
+        $this.addClass('active').siblings().removeClass('active')
+
+        $this.parents('.container').find('.content').animate({
+            marginLeft: -contentWidth * index
+        }, 500)
+    })
+</script>
+</body>
+</html>

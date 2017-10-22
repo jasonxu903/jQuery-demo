@@ -1,0 +1,318 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+    <title>题目9</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        .clearfix:after {
+            display: block;
+            content: '';
+            clear: both;
+        }
+
+        #container {
+            margin: 5px;
+            padding: 5px;
+        }
+
+        #nav {
+            list-style: none;
+        }
+
+        #nav > li {
+            float: left;
+        }
+
+        #nav > li:last-child {
+            border-right: 1px solid #ccc;
+        }
+
+        #nav > li > a {
+            display: block;
+            width: 120px;
+            padding: 5px;
+            text-align: center;
+            border: 1px solid #ccc;
+            border-bottom: none;
+            border-right: none;
+            color: #000;
+            text-decoration: none;
+        }
+
+        #nav > li.active > a {
+            background-color: #ccc;
+            color: #f00;
+        }
+
+        .goods-list {
+            list-style: none;
+            display: flex;
+            flex-flow: row wrap;
+            justify-content: space-between;
+            padding: 0;
+            width: 650px;
+            border: 1px solid #ccc;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        .goods-list > li {
+            position: relative;
+            width: 210px;
+            height: 210px;
+            margin-bottom: 10px;
+            border: 1px solid #ccc;
+            text-align: center;
+        }
+
+        .name {
+            text-align: left;
+            margin: 5px;
+        }
+
+        .price {
+            text-align: left;
+            margin: 15px 5px 5px 5px;
+            color: #f00;
+        }
+
+        .buy {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            opacity: 0;
+            background-color: rgba(204, 204, 204, .8);
+        }
+
+        .buy > a {
+            display: inline-block;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            padding: 10px 20px;
+            border: 2px solid #f00;
+            border-radius: 10px;
+            text-decoration: none;
+            color: #000;
+            background-color: #fff;
+        }
+    </style>
+</head>
+<body>
+<div id="container">
+    <ul class="clearfix" id="nav">
+        <li class="active"><a href="">热门</a></li>
+        <li><a href="">珠宝首饰</a></li>
+        <li><a href="">奢侈品</a></li>
+    </ul>
+    <div class="goods-ct">
+        <div class="goods" id="hots">
+            <ul class="goods-list">
+                <li>
+                    <div class="buy">
+                        <a href="#">购买</a>
+                    </div>
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                         alt="">
+                    <p class="name">热门商品热门商品热门商品</p>
+                    <p class="price">¥ 1688.00</p>
+                </li>
+                <li>
+                    <div class="buy">
+                        <a href="">购买</a>
+                    </div>
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                         alt="">
+                    <p class="name">热门商品热门商品热门商品</p>
+                    <p class="price">¥ 1688.00</p>
+                </li>
+                <li>
+                    <div class="buy">
+                        <a href="">购买</a>
+                    </div>
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                         alt="">
+                    <p class="name">热门商品热门商品热门商品</p>
+                    <p class="price">¥ 1688.00</p>
+                </li>
+                <li>
+                    <div class="buy">
+                        <a href="">购买</a>
+                    </div>
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                         alt="">
+                    <p class="name">热门商品热门商品热门商品</p>
+                    <p class="price">¥ 1688.00</p>
+                </li>
+                <li>
+                    <div class="buy">
+                        <a href="">购买</a>
+                    </div>
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                         alt="">
+                    <p class="name">热门商品热门商品热门商品</p>
+                    <p class="price">¥ 1688.00</p>
+                </li>
+                <li>
+                    <div class="buy">
+                        <a href="">购买</a>
+                    </div>
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                         alt="">
+                    <p class="name">热门商品热门商品热门商品</p>
+                    <p class="price">¥ 1688.00</p>
+                </li>
+            </ul>
+        </div>
+        <div class="goods hidden" id="jewels">
+            <ul class="goods-list">
+                <li>
+                    <div class="buy">
+                        <a href="">购买</a>
+                    </div>
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                         alt="">
+                    <p class="name">珠宝首饰珠宝首饰珠宝首饰</p>
+                    <p class="price">¥ 1688.00</p>
+                </li>
+                <li>
+                    <div class="buy">
+                        <a href="">购买</a>
+                    </div>
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                         alt="">
+                    <p class="name">珠宝首饰珠宝首饰珠宝首饰</p>
+                    <p class="price">¥ 1688.00</p>
+                </li>
+                <li>
+                    <div class="buy">
+                        <a href="">购买</a>
+                    </div>
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                         alt="">
+                    <p class="name">珠宝首饰珠宝首饰珠宝首饰</p>
+                    <p class="price">¥ 1688.00</p>
+                </li>
+                <li>
+                    <div class="buy">
+                        <a href="">购买</a>
+                    </div>
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                         alt="">
+                    <p class="name">珠宝首饰珠宝首饰珠宝首饰</p>
+                    <p class="price">¥ 1688.00</p>
+                </li>
+                <li>
+                    <div class="buy">
+                        <a href="">购买</a>
+                    </div>
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                         alt="">
+                    <p class="name">珠宝首饰珠宝首饰珠宝首饰</p>
+                    <p class="price">¥ 1688.00</p>
+                </li>
+                <li>
+                    <div class="buy">
+                        <a href="">购买</a>
+                    </div>
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                         alt="">
+                    <p class="name">珠宝首饰珠宝首饰珠宝首饰</p>
+                    <p class="price">¥ 1688.00</p>
+                </li>
+            </ul>
+        </div>
+        <div class="goods hidden" id="luxuries">
+            <ul class="goods-list">
+                <li>
+                    <div class="buy">
+                        <a href="">购买</a>
+                    </div>
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                         alt="">
+                    <p class="name">奢侈品奢侈品奢侈品奢侈品</p>
+                    <p class="price">¥ 1688.00</p>
+                </li>
+                <li>
+                    <div class="buy">
+                        <a href="">购买</a>
+                    </div>
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                         alt="">
+                    <p class="name">奢侈品奢侈品奢侈品奢侈品</p>
+                    <p class="price">¥ 1688.00</p>
+                </li>
+                <li>
+                    <div class="buy">
+                        <a href="">购买</a>
+                    </div>
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                         alt="">
+                    <p class="name">奢侈品奢侈品奢侈品奢侈品</p>
+                    <p class="price">¥ 1688.00</p>
+                </li>
+                <li>
+                    <div class="buy">
+                        <a href="">购买</a>
+                    </div>
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                         alt="">
+                    <p class="name">奢侈品奢侈品奢侈品奢侈品</p>
+                    <p class="price">¥ 1688.00</p>
+                </li>
+                <li>
+                    <div class="buy">
+                        <a href="">购买</a>
+                    </div>
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                         alt="">
+                    <p class="name">奢侈品奢侈品奢侈品奢侈品</p>
+                    <p class="price">¥ 1688.00</p>
+                </li>
+                <li>
+                    <div class="buy">
+                        <a href="">购买</a>
+                    </div>
+                    <img src="http://img10.360buyimg.com/N3/jfs/t2242/92/1446546284/374195/9196ac66/56af0958N1a723458.jpg"
+                         alt="">
+                    <p class="name">奢侈品奢侈品奢侈品奢侈品</p>
+                    <p class="price">¥ 1688.00</p>
+                </li>
+            </ul>
+        </div>
+    </div>
+</div>
+<script>
+    $('#nav > li').on('click', function (e) {
+        e.preventDefault()
+        $(this).addClass('active')
+        $(this).siblings().removeClass('active')
+        var index = $('#nav > li').index($(this))
+        $('.goods').eq(index).removeClass('hidden')
+        $('.goods').eq(index).siblings().addClass('hidden')
+    })
+
+    $('.goods-list > li').on('mouseenter', function () {
+        $(this).children('.buy').css('opacity', 1)
+    })
+    $('.goods-list > li').on('mouseleave', function () {
+        $(this).children('.buy').css('opacity', 0)
+    })
+    $('.goods-list > li > .buy > a').on('click', function (e) {
+        e.preventDefault()
+    })
+</script>
+</body>
+</html>
