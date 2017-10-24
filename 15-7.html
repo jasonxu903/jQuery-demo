@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+
+    <style>
+        body {
+            height: 5000px;
+        }
+        #btn {
+            padding: 20px 40px;
+            font-size: 16px;
+        }
+        #distance {
+            position: fixed;
+            top: 0;
+            right: 10px;
+            width: 200px;
+            height: 50px;
+            line-height: 50px;
+            text-align: left;
+            padding: 20px 40px;
+            border: 2px solid #000;
+            border-radius: 5px;
+        }
+        #color {
+            margin-top: 30px;
+            padding-left: 20px;
+            width: 500px;
+            height: 200px;
+            border: 1px solid #ccc;
+            font-size: 20px;
+        }
+        #ipt {
+            margin-top: 30px;
+            padding: 5px 10px;
+            width: 100px;
+            height: 30px;
+            outline: none;
+            border: 5px solid #000;
+            font-size: 14px;
+        }
+        #select {
+            margin-top: 30px;
+            width: 200px;
+            padding: 10px 20px;
+            border: 1px solid #000;
+        }
+    </style>
+
+    <title>进阶15题目7</title>
+</head>
+<body>
+<button id="btn">$btn</button>
+<p id="distance">滚动距离</p>
+<div id="color">
+    <p>鼠标移入变红</p>
+</div>
+<input type="text" id="ipt" placeholder="输入框">
+<div id="select">
+    <select name="" id="">
+        <option value="select">请选择</option>
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+    </select>
+    <p>选择内容</p>
+</div>
+
+
+
+<script>
+    //    当点击$btn 时，让 $btn 的背景色变为红色再变为蓝色
+    $('#btn').on('mousedown', function () {
+        $(this).css('background-color', 'red').text('按下变红').css('color',
+            'white')
+    })
+    $('#btn').on('mouseup', function () {
+        $(this).css('background-color', 'blue').text('放开变蓝').css('color',
+            'white')
+    })
+
+    //    当窗口滚动时，获取垂直滚动距离
+    $(window).scroll(function () {
+        var distance = $(window).scrollTop()
+        $('#distance').text('滚动距离' + distance + 'px')
+    })
+
+    //    当鼠标放置到$div 上，把$div 背景色改为红色，移出鼠标背景色变为白色
+    $('#color').on('mouseenter', function () {
+        $('#color').css('background-color', 'red')
+        $('#color > p').text('鼠标移出变白').css('color', 'white')
+    })
+    $('#color').on('mouseleave', function () {
+        $('#color').css('background-color', 'white')
+        $('#color > p').text('鼠标移入变红').css('color', 'black')
+    })
+
+    //    当鼠标激活 input 输入框时让输入框边框变为蓝色，当输入框内容改变时把输入框里的文字小写变为大写，当输入框失去焦点时去掉边框蓝色，控制台展示输入框里的文字
+    $('#ipt').on('focusin', function () {
+        $(this).css('border-color', 'blue')
+    })
+    $('#ipt').on('focusout', function () {
+        $(this).css('border-color', 'black')
+        if($(this).val()){
+            console.log($('#ipt').val())
+            $('<p>输入内容是' + $('#ipt').val() + '</p>').insertAfter($('#ipt'))
+        }
+    })
+    $('#ipt').on('keyup', function () {
+        $(this).val($(this).val().toUpperCase())
+    })
+
+    //    当选择 select 后，获取用户选择的内容
+    $('#select > select').on('change', function () {
+        var $value = $(this).children('option:selected').val()
+        if($value === 'select'){
+            return
+        }
+        console.log($value)
+        $('#select > p').text($value)
+    })
+</script>
+</body>
+</html>

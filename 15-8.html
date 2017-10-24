@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="zh-cmn-Hans">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://cdn.bootcss.com/jquery/2.2.4/jquery.js"></script>
+
+    <title>进阶15题目8</title>
+
+    <style>
+        #ct {
+            list-style: none;
+            margin: 0;
+            padding: 10px;
+        }
+
+        #ct > li {
+            border: 2px solid #0F7A45;
+            border-radius: 5px;
+            margin-bottom: 10px;
+            padding: 5px 10px;
+            font-size: 16px;
+        }
+
+        #btn {
+            display: block;
+            margin: 10px auto;
+            width: 150px;
+            height: 60px;
+            font-size: 16px;
+            outline: none;
+        }
+    </style>
+</head>
+<body>
+<ul id="ct">
+</ul>
+
+<button id="btn">加载更多</button>
+
+<script>
+    $(function () {
+        var idx = 0
+        var $ct = $('#ct')
+        $('#btn').on('click', function () {
+            $.get('/data', {index: idx}).done(function (res) {
+                idx++
+                console.log(res.data)
+                if(res.data.length === 0){
+                    $('#btn').text('没有更多数据')
+                }
+                $(res.data).each(function (index, data) {
+                    var content = data.text
+                    $ct.append('<li>' + content + '</li>')
+                })
+            })
+        })
+    })
+</script>
+</body>
+</html>
